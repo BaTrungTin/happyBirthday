@@ -142,7 +142,7 @@ function BirthdayCard() {
       <div className="card-content">
         {/* Text ben trai */}
         <div className="text-section">
-          <h1 className="handwriting">Chúc mừng sinh nhật</h1>
+          <h1 className="handwriting">Chúc mừng sinh nhật Cutie(BQUA)</h1>
           {!cakeClicked ? (
             <p className="handwriting instruction">
               Bấm vào bánh sau đó thổi nến
@@ -155,8 +155,10 @@ function BirthdayCard() {
             <>
               <p className="handwriting instruction">Chúc mừng sinh nhật! 🎉</p>
               <div className="special-message">
-                <p className="handwriting special-text">viết text ở đây</p>
-                <p className="handwriting special-text">text ở đây nữa</p>
+                <p className="handwriting special-text">
+                  Chúc em sinh nhật vui vẻ! 🎂
+                </p>
+                <p className="handwriting special-text">Love you ❤️</p>
               </div>
             </>
           ) : (
