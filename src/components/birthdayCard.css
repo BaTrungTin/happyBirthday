@@ -1,0 +1,267 @@
+/* Birthday Card Container */
+.birthday-card {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ff85b3 0%,
+    #ff99cc 25%,
+    #ffb3d9 50%,
+    #ff99cc 75%,
+    #ff85b3 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation cho background gradient */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Thêm hiệu ứng ánh sáng mờ */
+.birthday-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 30% 50%,
+      rgba(255, 133, 179, 0.25) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 50%,
+      rgba(255, 153, 204, 0.2) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.birthday-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 80%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+/* Text Section - Left Side */
+.text-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-left: 2rem;
+}
+
+.handwriting {
+  font-family: "Caveat", "Kalam", "Dancing Script", cursive;
+  color: #8b0000;
+  margin: 0;
+  text-shadow: 2px 2px 6px rgba(139, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.text-section h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #c41e3a;
+  text-shadow: 3px 3px 8px rgba(196, 30, 58, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.instruction {
+  font-size: 2rem;
+  color: #8b0000;
+  cursor: default;
+  text-shadow: 2px 2px 6px rgba(139, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.small-text {
+  font-size: 1.2rem;
+  color: #a52a2a;
+  opacity: 0.9;
+  font-style: italic;
+  text-shadow: 1px 1px 4px rgba(165, 42, 42, 0.4), 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Cake Section - Right Side */
+.cake-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.cake-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.cake-container:hover {
+  transform: scale(1.05);
+}
+
+.cake-image {
+  width: auto;
+  height: 50vh;
+  max-width: 50vw;
+  object-fit: contain;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+/* Animation nến cháy khi đang sáng */
+.cake-container.candle-burning {
+  animation: candleFlicker 1.5s ease-in-out infinite;
+}
+
+@keyframes candleFlicker {
+  0%,
+  100% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(255, 165, 0, 0.5));
+  }
+  25% {
+    filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 200, 0, 0.7));
+  }
+  50% {
+    filter: brightness(0.95) drop-shadow(0 0 4px rgba(255, 140, 0, 0.4));
+  }
+  75% {
+    filter: brightness(1.05) drop-shadow(0 0 7px rgba(255, 180, 0, 0.6));
+  }
+}
+
+/* Special message sau khi thổi nến */
+.special-message {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.special-text {
+  font-size: 1.8rem;
+  color: #8b0000;
+  text-shadow: 2px 2px 6px rgba(139, 0, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.4);
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.special-text:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.special-text:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.special-text:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Blow Button */
+.blow-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-family: "Caveat", cursive;
+  background: linear-gradient(135deg, #ffa500, #ffd700);
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.blow-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.6);
+}
+
+.blow-button:active {
+  transform: scale(0.95);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(255, 165, 0, 0.8);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-content {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .text-section {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .instruction {
+    font-size: 1.5rem;
+  }
+
+  .cake-image {
+    height: 40vh;
+    max-width: 80vw;
+  }
+}
