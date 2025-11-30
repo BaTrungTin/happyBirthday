@@ -194,13 +194,13 @@ function BirthdayCard() {
         {/* Nhac nen - co the them sau neu can */}
       </audio>
       <audio ref={clickSoundRef} preload="auto" style={{ display: "none" }}>
-        <source src="/sounds/clicksound.mp3" type="audio/mpeg" />
+        <source src="./sounds/clicksound.mp3" type="audio/mpeg" />
       </audio>
       <audio ref={blowSoundRef} preload="auto" style={{ display: "none" }}>
         {/* Am thanh thoi - co the them sau neu can */}
       </audio>
       <audio ref={birthdaySoundRef} preload="auto" style={{ display: "none" }}>
-        <source src="/sounds/happybirthday.mp3" type="audio/mpeg" />
+        <source src="./sounds/happybirthday.mp3" type="audio/mpeg" />
       </audio>
     </div>
   );
